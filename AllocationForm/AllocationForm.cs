@@ -345,94 +345,7 @@ namespace AllocationForm
 
                                     linesToSearch.Close();
 
-                                    //foreach (var linesearch in linesToSearch)
-                                    //{
-                                    //    var searchColumns = splitExpression.Split(linesearch).Where(s => s != delimiter).ToArray();
-                                    //    if (searchColumns[8].Equals(styleToSearch) && searchColumns[10].Equals(colorToSearch)) // lookup styles in lookupPath sheet
-                                    //    {
-                                    //        foreach (var store in storeList) // need to find corresponding entry of storeList to get relevant columns of WTD and OH values
-                                    //        {
-                                    //            if (store.Item1.Equals(storeNumber))
-                                    //            {
-                                    //                resultWTD = searchColumns[store.Item3]; // Item3 is WTD column
-                                    //                resultOH = searchColumns[store.Item4]; // Item4 is OH column
-                                    //                string styleDescriptSearchResult = StyleMasterToSearch.Where(style => style.Contains(styleToSearch + ",")).FirstOrDefault(); // StyleMasterToSearch[10] = "0042J-JJ1068,ANCHOR PANT"
-                                    //                resultDescript = styleDescriptSearchResult.Split(new char[] { ',' }, 2)[1]; // split on first comma to 2 substrings, take the second
-                                    //            }
-                                    //        }
-
-                                    //        break; // break out of search
-                                    //    }
-                                    //}
-
-
-                                    //var values = linesToSearch.Select(lookupline => lookupline.Split(',')).ToList();
-
-                                    //// searchResult is a string array containing the matching line 
-                                    //var searchResult = values.Where(x => x[8].Equals(styleToSearch) && x[10].Equals(colorToSearch)).Select(x => x).FirstOrDefault();
-
-                                    //if (searchResult != null && searchResult.Length > 10) // cehck search result looks correct
-                                    //{
-                                    //    foreach (var store in storeList) // need to find corresponding entry of storeList to get relevant columns of WTD and OH values
-                                    //    {
-                                    //        if (store.Item1.Equals(storeNumber))
-                                    //        {
-                                    //            resultWTD = searchResult[store.Item3]; // Item3 is WTD column
-                                    //            resultOH = searchResult[store.Item4]; // Item4 is OH column
-                                    //            resultDescript = searchResult[9]; // column 9 is item description
-                                    //        }
-                                    //    }
-                                    //}
-
-
-                                    //// splitExpression.Split(lookupline).Where(s => s != delimiter)
-                                    //var values = linesToSearch.ReadFields();
-
-                                    //// searchResult is a string array containing the matching line 
-                                    //var searchResult = values.Where(x => x[8].Equals(styleToSearch) && x[10].Equals(colorToSearch)).Select(x => x).FirstOrDefault();
-
-                                    //if (searchResult != null && searchResult.Length > 10) // check search result looks correct
-                                    //{
-                                    //    foreach (var store in storeList) // need to find corresponding entry of storeList to get relevant columns of WTD and OH values
-                                    //    {
-                                    //        if (store.Item1.Equals(storeNumber))
-                                    //        {
-                                    //            resultWTD = searchResult[store.Item3].ToString(); // Item3 is WTD column
-                                    //            resultOH = searchResult[store.Item4].ToString(); // Item4 is OH column
-                                    //            resultDescript = searchResult[9].ToString(); // column 9 is item description
-                                    //        }
-                                    //    }
-                                    //}
-
-
-
-
-                                    //var searchColumns = splitExpression.Split(searchResult).Where(s => s != delimiter).ToArray();
-
-                                    //foreach (var linesearch in linesToSearch)
-                                    //{
-                                    //    var searchColumns = splitExpression.Split(linesearch).Where(s => s != delimiter).ToArray();
-                                    //    if (searchColumns[8].Equals(styleToSearch) && searchColumns[10].Equals(colorToSearch)) // lookup styles in lookupPath sheet
-                                    //    {
-                                    //        foreach (var store in storeList) // need to find corresponding entry of storeList to get relevant columns of WTD and OH values
-                                    //        {
-                                    //            if (store.Item1.Equals(storeNumber))
-                                    //            {
-                                    //                resultWTD = searchColumns[store.Item3]; // Item3 is WTD column
-                                    //                resultOH = searchColumns[store.Item4]; // Item4 is OH column
-                                    //                resultDescript = searchColumns[9]; // column 9 is item description
-                                    //            }
-                                    //        }
-
-                                    //        break; // break out of search
-                                    //    }
-                                    //}
-
-
-
-
-
-
+                                    
 
                                     List<string> condensedColumnsOpen = new List<string>();
                                     foreach (int index in columnNumbersToKeep)
@@ -481,10 +394,10 @@ namespace AllocationForm
             {
                 MessageBox.Show(ae.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
