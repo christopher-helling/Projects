@@ -57,7 +57,7 @@ namespace CodeEval
                 if (!newPrefixesAndSuffixes.ContainsKey(prefix + suffix[i])) // new key
                 {
                     // suffix stays the same, we will be reusing the same set of letters to choose from
-                    permuteSetLength(prefix + suffix[i], suffix, length - 1);
+                    permuteSetLength(prefix + suffix[i], suffix.Substring(0,i) + suffix.Substring(i+1), length - 1);
                 }
 
             }
