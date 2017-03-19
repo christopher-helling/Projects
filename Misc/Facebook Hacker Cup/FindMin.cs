@@ -36,17 +36,11 @@ namespace CodeEval
                     Console.WriteLine(line);
 
                     long[] input = line.Split(',').Select(s => long.Parse(s)).ToArray();
-                    for (int j = 2; j < 5; j++)
-                    {
-                        input[j] = input[j] % input[5];
-                    }
-
-                    // NOTE: these Int32 should be swapped for a larger datatype to handle very large inputs we calculating initial sequence
-                    // (and in general to handle larger inputs)
+                    // Facebook Hacker Cup specifications: n, k (1 <= k <= 10^5, k < n <= 10^9)
                     // given n,k,a,b,c,r in input
-                    int n = (int)input[0];
+                    long n = (int)input[0];
                     int k = (int)input[1];
-                    int stoppingIndex = (n + 1) % (k + 1); // don't need to find m[n-1] since the added elements are cyclical, we can thus stop at the appropriate index
+                    long stoppingIndex = (n + 1) % (k + 1); // don't need to find m[n-1] since the added elements are cyclical, we can thus stop at the appropriate index
 
                     if (stoppingIndex == 0)
                     {
@@ -66,10 +60,15 @@ namespace CodeEval
                         missingValues[m[0]] = -1;
                     }
 
+                    for (int j = 2; j < 5; j++)
+                    {
+                        input[j] = input[j] % input[5];
+                    }
+
                     for (int i = 1; i < k; i++)
                     {
                         // generate known part of the sequence pseudorandomly
-                        m[i] = (int)((input[3] * m[i - 1] + input[4]) % input[5]); // m[i] = (b * m[i - 1] + c) % r, 0 < i < k 
+                        m[i] = (int) ((input[3] * m[i - 1] + input[4]) % input[5]); // m[i] = (b * m[i - 1] + c) % r, 0 < i < k 
 
                         // mark it found in our table of missingValues
                         if (m[i] <= k)
@@ -112,11 +111,12 @@ namespace CodeEval
 
                         
                     Console.WriteLine(m[m.Length-1]); // m[n-1]
+                    Console.WriteLine("Stopping index: " + stoppingIndex);
                     stopwatch.Stop();
                     Console.WriteLine("Time elapsed: " + stopwatch.ElapsedMilliseconds + "ms");
                 }
             mainStopwatch.Stop();
-            Console.WriteLine("Time elapsed: " + mainStopwatch.ElapsedMilliseconds + "ms");
+            Console.WriteLine("Cumulative time elapsed: " + mainStopwatch.ElapsedMilliseconds + "ms");
             Console.Read();
         }
 
